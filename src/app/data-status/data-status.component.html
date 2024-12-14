@@ -1,0 +1,277 @@
+<div class="page-content">
+
+  <div class="flex items-center mb-2">
+    <div class="">
+      <a href="{{file_path}}" target="_blank"
+        class="flex items-center gap-1 px-4 h-[30px] rounded-[6px] bg-[#3629B7] hover:bg-[#4138a3] text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentcolor" class="w-4 h-4">
+          <path
+            d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
+        </svg>
+        <span>PDF LINK</span>
+      </a>
+    </div>
+    <div class="flex ml-auto"></div>
+  </div>
+
+  <div class="full">
+    <div class="card">
+
+      <div class="card-body">
+        <!-- <div class="flex items-center justify-between mb-4">
+              <h6 class="card-title">Titles</h6> 
+              <div class="">
+                <input type="submit" value="Re-Generate" class="flex items-center gap-1 px-4 h-[36px] rounded-[6px] bg-[#065ad8] hover:bg-[#29508b] text-white">
+              </div>
+          </div> -->
+
+        <form (ngSubmit)="onGenerate()" class="w-full">
+          <div class="w-full">
+            <div class="flex items-center justify-between mb-5">
+              <h6 class="card-title">PDF Edit</h6>
+              <div class="">
+                <input type="submit" value="Split-Re Run"
+                  class="cursor-pointer flex items-center gap-1 px-4 h-[36px] rounded-[6px] bg-[#065ad8] hover:bg-[#29508b] text-white">
+              </div>
+            </div>
+
+            <!--
+              <div class="table-responsive">
+                <table class="table">
+                   <thead class="text-gray-700 uppercase bg-[#c7d0e0] text-left">
+                     <tr class="border-b 1hover:bg-gray-50 ">
+                       <th scope="col" class="">Title</th>
+                       <th scope="col" class="">OCR Data</th>
+                       <th scope="col" class="">Start Page</th>
+                       <th scope="col" class="">End Page</th>
+                     </tr>
+                  </thead>
+                  <tbody >                     
+                    <tr class="bg-white border-b text-left"  *ngFor="let item of split_documents; let i = index">
+                         
+                        <td class="flex items-center gap-2">{{ i+1}} <input type="text" [(ngModel)]="item.title" name="title{{ i + 1 }}" value="{{item.title}}" class="w-full flex justify-center items-center bg-gray-200 px-4 py-1.5 rounded-lg"></td>
+                        <td><button   type="button"  (click)="Ocrclicked(item)" class="w-14 flex items-center justify-center gap-1 px-2 h-[28px] rounded-[6px] bg-gray-600 hover:bg-gray-800 text-white">OCR</button></td>
+                        <td><input type="text" [(ngModel)]="item.start_page" name="start_page{{ i + 1 }}" value="{{item.start_page}}" class="w-20 flex justify-center items-center bg-gray-200 px-4 py-1.5 rounded-lg"></td>
+                        <td><input type="text"  [(ngModel)]="item.end_page" name="end_page{{ i + 1 }}" value="{{item.end_page}}" class="w-20 flex justify-center items-center bg-gray-200 px-4 py-1.5 rounded-lg"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div> 
+            -->
+
+            <div class="table-responsive">
+              <table class="table" cdkDropList (cdkDropListDropped)="drop($event)">
+                <thead class="text-gray-700 uppercase bg-[#c7d0e0] text-left">
+                  <tr class="border-b hover:bg-gray-50">
+                    <th scope="col">#</th>
+                    <th scope="col">OCR Data</th>
+                    <th scope="col">Start Page</th>
+                    <th scope="col">End Page</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr cdkDrag *ngFor="let item of split_documents; let i = index; trackBy: trackByUniqueKey">
+                    <td class="flex items-center gap-2">
+                      {{ i + 1 }}
+                      <input type="text" [(ngModel)]="item.title" name="title{{ i + 1 }}"
+                        class="w-full bg-gray-200 px-4 py-1.5 rounded-lg" />
+                        
+                    </td>
+                    <td>
+                      <button type="button" (click)="Ocrclicked(item)"
+                        class="w-14 px-2 h-[28px] bg-gray-600 text-white">OCR</button>
+                    </td>
+                    <td>
+                      <input type="text" [(ngModel)]="item.start_page" name="start_page{{ i + 1 }}"
+                        class="w-20 bg-gray-200 px-4 py-1.5 rounded-lg" />
+                    </td>
+                    <td>
+                      <input type="text" [(ngModel)]="item.end_page" name="end_page{{ i + 1 }}"
+                        class="w-20 bg-gray-200 px-4 py-1.5 rounded-lg" />
+                    </td>
+                  
+                      
+                  
+                    <td class="flex items-center gap-2">
+                      <button type="button" (click)="updateocr(item,item.id)"
+                        class="flex items-center gap-1 px-2 h-[24px] rounded-[6px] bg-[#3629B7] hover:bg-[#4138a3] text-white">update</button>
+                      <button type="button" (click)="removeRow(item.id)"
+                        class="bg-red-500 text-white px-2 py-1 rounded">Remove</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="my-4">
+              <button type="button" (click)="addRow()" class="bg-blue-500 text-white px-4 py-2 rounded">Add Doc
+                Page</button>
+            </div>
+
+
+
+
+            <!--
+              <div *ngFor="let item of split_documents; let i = index" class="hidden">
+                <div class="grid grid-cols-4 mb-3 gap-4" >
+                  {{ i + 1 }}. {{ item.title }}   
+                  <button   type="button"  (click)="Ocrclicked(item)" class="w-14 flex items-center justify-center gap-1 px-2 h-[28px] rounded-[6px] bg-gray-600 hover:bg-gray-800 text-white">OCR</button>                  
+                   <div>                    
+                    <input type="text" [(ngModel)]="item.start_page" name="start_page{{ i + 1 }}" value="{{item.start_page}}" class="flex justify-center items-center bg-gray-200 px-4 py-2.5 rounded-lg">
+                   </div>                  
+                   <div>                   
+                    <input type="text"  [(ngModel)]="item.end_page" name="end_page{{ i + 1 }}" value="{{item.end_page}}" class="flex justify-center items-center bg-gray-200 px-4 py-2.5 rounded-lg">
+                   </div>                  
+                </div>
+              </div> 
+            -->
+
+          </div>
+          <!-- <input type="submit" value="Re-Generate" class="w-full flex items-center bg-black px-5 py-3 text-white rounded-lg"> -->
+        </form>
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="flex1 hidden w-full">
+  <div class="container1 w-full main_canvas p-3 flex">
+
+    <div class="w-full flex h-full h-screen">
+      <div class="image-uploader pr-2 flex-1_bk w-[100%]">
+        <div class="navigation  flex items-center justify-end gap-3 mt-2 pb-4 hidden1">
+          <!-- <button
+              (click)="previousImage()"
+              [disabled]="currentIndex === 0"
+              class="flex items-center justify-center text-center text-white text-[12px] bg-[#333] hover:bg-[#000] px-2 py-1 rounded-[4px] cursor-pointer font-medium"
+            >
+              Previous
+            </button>
+            <button
+              (click)="nextImage()"
+              [disabled]="currentIndex === datas.length - 1"
+              class="flex items-center justify-center text-center text-white text-[12px] bg-[#08a0e1] hover:bg-[#08a0e1]/90 px-2 py-1 rounded-[4px] cursor-pointer font-medium"
+            >
+              Next
+            </button> -->
+        </div>
+
+        <div class="flex items-center gap-3 mb-3">
+          <a href="{{file_path}}" target="_blank"
+            class="flex items-center justify-center text-center text-white text-[12px] bg-[#333] hover:bg-[#000] px-2 py-1 rounded-[4px] cursor-pointer font-medium">PDF
+            LINK</a>
+          <!-- <a (click)="openOCR(title2,selectedData?.start_page,selectedData?.end_page)" target="_blank" class="flex items-center justify-center text-center text-white text-[12px] bg-[#08a0e1] hover:bg-[#08a0e1]/90 px-2 py-1 rounded-[4px] cursor-pointer font-medium">OCR DATA</a> -->
+        </div>
+
+
+        <!-- (click)="selectData(item)"  -->
+        <form (ngSubmit)="onGenerate()">
+          <div class="p-4 bg-white w-full">
+            <div class="flex items-center justify-between mb-5">
+              <div class="text-[20px] font-[600]">Titles:</div>
+              <div class="">
+                <input type="submit" value="Re-Generate"
+                  class="flex items-center bg-black px-5 py-3 text-white rounded-lg">
+              </div>
+            </div>
+
+
+
+            <div *ngFor="let item of split_documents; let i = index">
+              <div class="cursor-pointer grid grid-cols-4 mb-3 gap-4">
+                {{ i + 1 }}. {{ item.title }} <!-- Display serial number -->
+
+                <button type="button" (click)="Ocrclicked(item)"
+                  class="w-24 save-btn text-white items-center justify-center gap-2 message-center message-white bg-[#08a0e1] hover:bg-[#08a0e1]/90 px-3 py-2.5 rounded-[6px] cursor-pointer font-medium mx-7">OCR</button>
+                <!-- Start Page -->
+                <div>
+                  <!-- <span>Start Page:</span> -->
+                  <input type="text" [(ngModel)]="item.start_page" name="start_page{{ i + 1 }}"
+                    value="{{item.start_page}}"
+                    class="flex justify-center items-center bg-gray-200 px-4 py-2.5 rounded-lg">
+
+                </div>
+                <!-- End Page -->
+                <div>
+                  <!-- <span>End Page:</span> -->
+                  <input type="text" [(ngModel)]="item.end_page" name="end_page{{ i + 1 }}" value="{{item.end_page}}"
+                    class="flex justify-center items-center bg-gray-200 px-4 py-2.5 rounded-lg">
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- <input type="submit" value="Re-Generate" class="w-full flex items-center bg-black px-5 py-3 text-white rounded-lg"> -->
+        </form>
+
+      </div>
+
+      <!-- <div class="form-display pl-2 border-l-0 border-gray-400 flex-1_bk w-[55%] relative">
+          <div class="document_form" >
+            <div class="form-builder_bk" > 
+              <div class="tabs-container_1 tab-content_1 card cart_fh text-left">
+                <div  class="tab-content_1 card-body overflow-y-auto">
+                  <div *ngIf="selectedData">
+                   
+                    <h4>{{selectedData?.title}}</h4>
+                    
+                    <div> Start Page: {{selectedData?.start_page}}</div>
+                  
+                    <div>End Page:{{selectedData?.end_page}}</div>
+                    <h4>Selected Data:</h4>
+                    <div [innerHTML]="formattedText"></div>
+
+                 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+  
+  
+  
+        
+        </div> -->
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+<div *ngIf="ispopupopen" class="modal">
+  <div class="modal-content relative p-10 min-h-56">
+    <span (click)="closeConfirmation5()" class="close absolute right-3 top-3 text-2xl cursor-pointer">&times;</span>
+    <div class="document_form">
+      <div class="form-builder_bk">
+        <div class="tabs-container_1 tab-content_1 card1 cart_fh1 text-left">
+          <div class="tab-content_1 card-body1 overflow-y-auto">
+            <div *ngIf="selectedData">
+
+              <h4>{{selectedData?.title}}</h4>
+              <div class="flex items-center gap-3 mb-3">
+                <div><span class="font-semibold">Start Page:</span> {{selectedData?.start_page}}</div>
+                <div><span class="font-semibold">End Page:</span> {{selectedData?.end_page}}</div>
+              </div>
+
+              <h3>Selected Data:</h3>
+              <div [innerHTML]="formattedText"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

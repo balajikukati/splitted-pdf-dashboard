@@ -1,0 +1,26 @@
+<!-- <h2 class="text-lg font-semibold mb-4">OCR Results for {{ data.filename }}</h2> -->
+ <div class="w-full p-4">
+    <h2 class="text-lg font-semibold mb-4">OCR Result</h2>
+
+    <div class="table-responsive">
+      <table class="table">
+         <thead class="text-gray-700 uppercase bg-[#c7d0e0] text-left">
+          <tr class="border-b 1hover:bg-gray-50 ">
+            <th class="">Page</th>
+            <th class="">Original Content</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let result of ocr_results">
+            <td class="">{{ result.page }}</td>
+            <td class="whitespace-normal">{{ result.original_content }}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div *ngIf="ocr_results.length === 0" class="mt-4">
+        <p>Loading...</p>
+      </div>
+    </div>
+ </div>
+

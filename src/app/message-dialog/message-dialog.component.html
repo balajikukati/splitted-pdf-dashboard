@@ -1,0 +1,18 @@
+
+<div class="w-full p-5">
+  <div class="w-full text-[18px] font-bold mb-4">Hello!</div>
+
+  <div class="w-full">
+    <div class="flex items-center justify-between border-b border-gray-300 pb-2 mb-2">
+      <span class="font-semibold">State, County:</span>
+      <span>{{data.State}} {{data.County}}</span>
+    </div>     
+  </div>
+
+  <div class="w-full">
+   {{data.message}}
+  </div>
+  
+  <div class="w-full mt-3"><button (click)="onConfirm()" class="btn bg-primary-800 hover:bg-purple-900 text-white">OK</button></div>
+</div>
+

@@ -1,0 +1,20 @@
+{
+  "/api": {
+    "target": "https://5mklkzwv49.execute-api.us-east-1.amazonaws.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/another-api": {
+    "target": "https://399wexrf5l.execute-api.us-east-1.amazonaws.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/another-api": ""
+    }
+  }
+}

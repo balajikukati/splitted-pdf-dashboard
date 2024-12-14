@@ -1,0 +1,20 @@
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: 500;
+    color: #666;
+  }
+  
+  p {
+    background: #f9f9f9;
+    padding: 8px;
+    border-radius: 5px;
+  }

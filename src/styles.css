@@ -1,0 +1,400 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* width */
+::-webkit-scrollbar {
+    width:6px;
+    height: 6px;
+}  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 5px;
+}  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b9b9b9;
+    border-radius: 5px;
+}  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b9b9b9;
+}
+
+.processing-row {
+    background: yellow; /* Change to your desired color */
+}
+.processing-row td{
+    background: transparent !important; /* Change to your desired color */
+}
+ 
+
+html, body {
+    height: 100%;  
+}
+body { 
+    /* background: #f7f7f8; 
+    background: url(/assets/images/bg_1.jpg) repeat;*/
+    background:#f7f8fa;
+    color: #0e0e25;
+    margin: 0; 
+    font-family: "Poppins", sans-serif!important;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal; 
+    padding-top: 60px;
+    
+}
+
+h1,h2,h3,h4,h5,h6{    
+    font-family: "Poppins", sans-serif!important;
+    font-weight: 600!important;
+}
+
+/*.main_canvas {
+     background: url(/assets/images/bg_1.jpg) repeat; */
+    /* background-image: linear-gradient(to right, #ebebeb 1px, transparent 1px), linear-gradient(to bottom, #ebebeb 1px, transparent 1px);
+    background-size: 10px 10px; 
+}*/
+
+.page-content{
+    flex-grow: 1;
+    padding: 15px;
+    /* margin-top: 60px; */
+  }
+
+.card{
+    width: 100%;
+    min-width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    background: #fff;
+    border: 1px solid #f2f4f9;
+    border-radius:.25rem;
+    box-shadow: 0 0 10px 0 rgba(183, 192, 206, .2);
+  }
+.card-body{
+    flex: 1 1 auto;
+    padding:1rem 1rem; 
+    /* padding:1.5rem 1.5rem;  */
+}
+.table-responsive{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.card .card-title {
+    text-transform: uppercase;
+    font-size: .875rem;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.cart_fh{
+    height: calc(100vh - 50px);
+}
+
+.card_maxh{
+    max-height: 680px;
+    overflow-y: auto;
+}
+
+
+.table {
+	color: #212529; /* Equivalent to var(--bs-body-color) */
+	background-color: transparent;
+	border-color: #dee2e6; /* Equivalent to var(--bs-border-color) */
+	width: 100%;
+	margin-bottom: 1rem;
+	vertical-align: top;  
+    caption-side: bottom;
+    border-collapse: collapse;
+    color: #000;
+    white-space: nowrap;
+}
+.table thead th {
+    border-top: 0;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #232a38;
+    padding:0.65rem 0.85rem;
+}
+.table tbody td {
+    background-color: #fff;
+    padding:0.65rem 0.85rem; 
+    text-transform: capitalize;
+}
+.table tbody tr{    
+    border-bottom-width: 1px;
+}  
+/* .table * > * {
+    padding: 0.85rem; 
+    border-bottom-width: 1px;
+} */
+.main_title{
+    font-size: 1.25rem;
+    letter-spacing: -0.5px;
+    font-weight: 600;
+}
+.btn{
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+}
+
+.form-control{    
+    width: 100%; 
+    height: 2.5rem;  
+    padding: 0.5rem 0.5rem; 
+    border: 1px solid #ced8e6; 
+    border-radius: 6px; 
+    font-weight: 500;
+    text-align: left;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    text-transform: uppercase!important;
+}
+
+.form-control.form_textarea{
+    height: 5.5rem;  
+}
+
+.bg_gradient1{
+    background: linear-gradient(270deg, #dd9cbf0f 0%, #8854f00d 100%);
+}
+.bg_gradient2{
+    background: linear-gradient(270deg, #DD9CBF 0%, #8955EE 100%);
+}
+
+.stats_outer{ 
+    padding: 0.3rem 0.375rem;  
+    border-radius: 5px;  
+    color: #000;
+    gap: 0.4rem;
+    font-size: 13.5px;
+    line-height: 1.5;
+    /* background: linear-gradient(270deg, #33b3d6 0%, #007bff 100%); */
+    background: linear-gradient(270deg, #a5f3fc 0%, #bfdbfe 100%); 
+}
+.start_cardsrep{ 
+    display: flex;  
+    align-items: center;
+    gap: 0.3rem; 
+    padding: 0.4rem 0.5rem;  
+    background: #fff;
+    border-radius: 5px;  
+}
+
+.tbl_intble, .tbl_intble th, .tbl_intble td {
+    border: 1px solid #666;
+    border-collapse: collapse;
+}
+
+
+.imagestatus_block{
+    width: 100%;    
+    height: 100%;
+    height: 100vh;
+    display: flex;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.imagestatus_block .image-uploader{
+    width: 50%;
+    /* padding-right: 0.5rem; */
+}
+.imagestatus_block .form-display{
+    width: 50%;
+    padding-top: 1rem;
+    /* padding-left: 0.75rem; */
+    position: relative;
+}
+.imagestatus_block .form-display2{
+    width: 30%;
+    padding-top: 1rem;
+    /* padding-left: 0.75rem; */
+    position: relative;
+}
+.imagestatus_block .pdf_titles{
+    width: 20%;
+    padding-top: 1rem; 
+    position: relative; 
+} 
+
+.imgs_tab ul{
+    width: 100%;
+    padding:0px;
+    display: inline-block;
+    margin: 0px 0px 10px 0px;
+}
+.imgs_tab ul li{ 
+    display: inline-block;
+    list-style: none; 
+    margin: 0px 10px 0px 0px;
+    padding: 0.375rem 1rem;
+    color: #fff;
+    font-weight: 500;
+    background: #5286bc;
+    /* background: #7e7e7e; */
+    border-radius: 6px;
+    cursor: pointer;
+}  
+.imgs_tab ul li:hover{
+    background: #414148e6;
+}
+.tab_active{
+    background: #3629B7!important;
+}
+.imgs_content{
+    background: #D9D9D9;
+    padding: 0.5rem;
+}
+
+.pdf_title_fixed{
+    position: fixed;
+    top: 75px;
+    height: calc(100vh - 75px); /* Subtracting the top offset from the full viewport height */
+    width: 19%; /* Adjust width as necessary */
+    z-index: 9;
+}
+
+.pdf_fixed {
+    position: fixed;
+    top: 75px;
+    height: calc(100vh - 75px); /* Subtracting the top offset from the full viewport height */
+    width: 49.5%; /* Adjust width as necessary */
+    z-index: 9;
+} 
+.pdf_buttons{
+    /* position: fixed;
+    z-index:9;
+    margin-left: 37%;
+    margin-top: -65px; */
+}
+.pdf_btninner{    
+    display: flex;
+    align-items: center; 
+    gap:6px;
+}
+.pdf_buttons .pdfbtn{
+    width: 1.6rem;
+    height: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    color: #fff;    
+    background: #065ad8;
+}
+.pdf_buttons .pdfbtn:hover{
+    background: #3886fa;
+}
+
+.pdf_buttons .displaybtn{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 10px;
+    line-height: 1.2;
+    border-radius: 9999px;
+    color: #fff;    
+    background: #0da1e1;
+}
+.pdf_buttons .displaybtn:hover{
+    background: #0090cf;
+}
+
+
+
+/*Start Accodation*/
+.form_accordion .accordion-item {  
+    width: 100%;
+}  
+.form_accordion .accordion-title {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    background: #fff;
+    padding: 15px 15px;
+    margin: 0;
+    border-bottom: 1px solid #e8e8e8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}  
+.form_accordion .custom-arrow {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid #000;  /* Custom arrow color */
+    transition: transform 0.3s ease;
+}  
+.form_accordion .rotate {
+    transform: rotate(180deg);  /* Rotate to point upwards */
+}  
+
+/* Accordion Content Styling */
+.form_accordion .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.3s ease-out;
+    padding: 0 15px;
+    opacity: 0; /* Add opacity for smooth fade-in */
+    transition: max-height 0.5s ease-out, padding 0.3s ease-out, opacity 0.3s ease-out;
+    background: #f0f4fd;
+}
+
+.form_accordion .accordion-content.open {
+    max-height: 250px; /* A large enough value to fit the tallest content */
+    overflow-y: auto;
+    opacity: 1; /* Fade in smoothly */
+    padding: 15px;
+    transition: max-height 0.5s ease-in, padding 0.3s ease-in, opacity 0.3s ease-in;
+} 
+/*End Accodation*/
+
+
+.form_accordion12 .accordion-item1{
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #e8e8e8;
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+.form_accordion12 .accordion-item1 .accordion-title{
+    font-weight:600;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+
+.cdk-drag-preview {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .cdk-drop-list-dragging .cdk-drag {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+
+@media only screen and (max-width:1600px){
+
+    /*html, body {  zoom: 0.9;  Zoom to 90% }*/
+    .stats_outer{font-size: 11px; gap: 0.2rem;}
+    .start_cardsrep{ padding: 0.2rem 0.3rem;  }
+    .form-control{height: 2rem;}
+}

@@ -1,0 +1,47 @@
+<div class="flex h-screen -mt-[60px] bg-white p-5"> 
+  <!-- Left Pane -->
+  <div class="w-full bg-gradient-to-tl from-[#003366] to-blue-500 lg:w-1/2 flex items-center justify-center rounded-tl-[10rem] rounded-bl-[10rem]">
+
+    <!-- <div class="max-w-lg text-center">
+      <img src="assets/images/login_img1.png" class="w-full mx-auto" alt="img">
+    </div>  -->
+
+    <div class="group relative w-full h-full items-end overflow-hidden rounded-tl-[10rem] rounded-bl-[10rem]">
+      <img src="assets/images/login_bg1.jpg" loading="lazy" alt=" " class="absolute z-1 inset-0 h-full w-full object-cover object-center rounded-tl-[10rem] rounded-bl-[10rem]">
+    </div>
+    
+  </div>  
+  <!-- Right Pane -->
+  <div class="hidden lg:flex items-center justify-center flex-1 bg-gradient-to-tl from-gray-100 to-blue-200 text-black rounded-br-[10rem] rounded-tr-[10rem]">
+    <div class="max-w-md w-full p-6">
+
+      <div class="flex items-center justify-start mb-8">          
+          <img src="assets/images/logo.png" class="h-20 w-auto" alt="Logo">
+      </div>
+
+      <h1 class="text-3xl font-semibold mb-6 text-black text-left">Login</h1>
+       
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm" method="POST" class="space-y-4">
+       
+      
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="text" id="email" name="email" [(ngModel)]="email" required class="mt-1 p-2 h-[40px] w-full bg-[#fafbfe] border border-[#e7ecf3] shadow rounded-md focus:outline-none focus:ring-0 focus:ring-offset-0 transition-colors duration-300">
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <input type="password" id="password" name="password" [(ngModel)]="password" required class="mt-1 p-2 h-[40px] w-full bg-[#fafbfe] border border-[#e7ecf3] shadow rounded-md focus:outline-none focus:ring-0 focus:ring-offset-0 transition-colors duration-300">
+        </div>
+        <div>
+          <button type="submit" [disabled]="!loginForm.valid" class="cursor-pointer w-full bg-[#065ad8] hover:bg-[#065ad8] text-white text-[16px] font-semibold px-5 py-3 rounded-md focus:outline-none focus:ring-0 focus:ring-offset-0 transition-colors duration-300">
+            Login
+          </button>
+        </div>
+      </form>
+       
+    </div>
+  </div>
+</div>
+
+
+ 

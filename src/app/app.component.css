@@ -1,0 +1,188 @@
+.nav-link {
+  color: #4b5563; /* Default link color */
+}  
+.nav-link:hover {
+  color: #333; /* Hover link color */
+}  
+.active-link {
+  color: #065ad8 !important; /* Active link color */
+  font-weight: 600;
+}
+
+.main-wrapper{
+  display: flex;
+}
+.sidebar{
+  /* width: 240px; */
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width .1s ease, margin .1s ease-out;
+  z-index: 1;
+}
+.sidebar .sidebar-header {
+  background: #fff;
+  height: 60px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  border-right: 1px solid #e9ecef;
+  z-index: 1;
+  width: 100%;
+  transition: width .1s ease;
+}
+.sidebar .sidebar-body {
+  max-height: calc(100% - 60px);
+  position: relative;
+  border-right: 1px solid #e9ecef;
+  height: 100%;
+  box-shadow: 0 8px 10px #b7c0ce33;
+  background: #fff;
+  z-index: 2;
+}
+/* .sidebar:hover .sidebar-body {
+  width: 240px;
+  background-color: red;
+
+} */
+.sidebar .sidebar-body .sidebar-nav {
+  list-style: none;
+  padding: 25px 25px 50px;
+}
+.sidebar .sidebar-body .sidebar-nav ul li{
+  font-size: 13px;
+}
+.page-wrapper{
+  min-height: 100vh;
+  background: #f9fafb;
+  width: 100%;
+  /* width: calc(100% - 240px);
+  margin-left: 240px; */
+  display: flex;
+  flex-direction: column;
+  transition: margin .1s ease, width .1s ease;
+}
+.page-wrapper2{
+  min-height: 100vh;
+  background: #f9fafb;
+  width:100%;
+  margin-left: 0px;
+  display: flex;
+  flex-direction: column;
+  transition: margin .1s ease, width .1s ease;
+}
+.page-content{
+  flex-grow: 1;
+  padding: 25px;
+  /* margin-top: 60px; */
+}
+
+.navbar {
+  width: 100%;
+  /* width: calc(100% - 240px); */
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #e9ecef;
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+  padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  /* left: 240px; */
+  z-index: 1;
+  box-shadow: 3px 0 10px #b7c0ce33;
+  transition: width .1s ease, left .1s ease;
+}
+.navbar2 {
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #e9ecef;
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+  padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+ 
+  z-index: 1;
+  box-shadow: 3px 0 10px #b7c0ce33;
+  transition: width .1s ease, left .1s ease;
+}
+.sidebar-folded .sidebar .sidebar-header {
+  width: 70px;
+}
+.sidebar-folded .sidebar .sidebar-header .sidebar-brand {
+  display: none;
+}
+.sidebar-folded .page-wrapper {
+  width: calc(100% - 70px);
+  margin-left: 70px;
+}
+.sidebar-folded .page-wrapper .navbar {
+  width: calc(100% - 70px);
+  left: 70px;
+  right: 0;
+}
+.sidebar-folded:not(.open-sidebar-folded) .sidebar {
+  width: 70px;
+}
+.sidebar-folded:not(.open-sidebar-folded) .sidebar .sidebar-header {
+  width: 70px;
+}
+.sidebar-folded:not(.open-sidebar-folded) .sidebar .sidebar-header .sidebar-brand {
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+}
+.sidebar-folded:not(.open-sidebar-folded) .sidebar .sidebar-body .sidebar-nav .nav-item .nav-link .link-title,
+.sidebar-folded:not(.open-sidebar-folded) .sidebar .sidebar-body .sidebar-nav .nav-item .nav-link .link-arrow {
+  visibility: hidden;
+  opacity: 0;
+}
+.sidebar-folded:not(.open-sidebar-folded) .sidebar .sidebar-body .sidebar-nav .nav-item.nav-category {
+  visibility: hidden;
+}
+.sidebar-folded:not(.open-sidebar-folded) .sidebar .sidebar-body .sidebar-nav .nav-item.nav-category:before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7987A1;
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  visibility: visible;
+}
+.sidebar-folded:not(.open-sidebar-folded) .sidebar .sidebar-body .sidebar-nav.sub-menu {
+  display: none;
+}
+.display-none {
+  display: none;
+}
+
+.navbar-class2{
+display: none;
+}
+
+@media (max-width: 991px) {
+  .sidebar-open .main-wrapper:before,.settings-open .main-wrapper:before {
+      content: "";
+      width: 100vw;
+      background: rgba(0,0,0,.3);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 99;
+      transition: all 3s ease;
+      z-index: 980;
+  }
+}
